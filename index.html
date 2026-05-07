@@ -3,98 +3,239 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>VP Assignment Scenario Planner</title>
+  <title>VP Assignment Executive Dashboard</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <main class="page">
-    <section class="hero">
-      <div>
-        <p class="eyebrow">Strategic Growth Planning</p>
-        <h1>VP Assignment Scenario Planner</h1>
-        <p class="subhead">
-          Compare leadership assignment strategies across growth, geography, workload, and disruption.
-        </p>
-      </div>
-    </section>
+    <header class="hero">
+      <p class="eyebrow">Strategic Growth Planning</p>
+      <h1>VP Assignment Executive Dashboard</h1>
+      <p class="subhead">
+        Compare baseline and optimized leadership assignment states across capacity,
+        opportunity absorption, workload balance, sensitivity, and organizational relationships.
+      </p>
+    </header>
 
-    <section class="controls">
+    <section class="scenario-controls">
       <div class="control-card">
-        <label for="scenarioA">Current View</label>
-        <select id="scenarioA">
-          <option>Current State</option>
-          <option>Balanced Growth</option>
-          <option>Geographic Efficiency</option>
-          <option>Service Line Fit</option>
-          <option>Minimize Disruption</option>
-        </select>
+        <label>Baseline</label>
+        <div class="locked-value">Current State</div>
       </div>
 
       <div class="control-card">
-        <label for="scenarioB">Compare Against</label>
-        <select id="scenarioB">
-          <option>Balanced Growth</option>
-          <option>Current State</option>
-          <option>Geographic Efficiency</option>
-          <option>Service Line Fit</option>
-          <option>Minimize Disruption</option>
+        <label for="scenarioSelect">Optimized Scenario</label>
+        <select id="scenarioSelect">
+          <option value="Balanced Growth">Balanced Growth</option>
+          <option value="Geographic Efficiency">Geographic Efficiency</option>
+          <option value="Service Line Fit">Service Line Fit</option>
+          <option value="Minimize Disruption">Minimize Disruption</option>
         </select>
       </div>
     </section>
 
-    <section class="kpi-grid">
-      <div class="kpi-card">
-        <span>Total Reassignments</span>
-        <strong id="reassignments">12</strong>
-      </div>
-      <div class="kpi-card">
-        <span>Capacity Violations</span>
-        <strong id="violations">1</strong>
-      </div>
-      <div class="kpi-card">
-        <span>Optimized Score</span>
-        <strong id="score">0.72</strong>
-      </div>
-      <div class="kpi-card">
-        <span>Executive Recommendation</span>
-        <strong id="recommendation">Balanced Growth</strong>
-      </div>
+    <section class="recommendation-banner">
+      <p class="eyebrow">Executive Recommendation</p>
+      <h2 id="recommendationHeadline">Balanced Growth is the recommended default scenario.</h2>
+      <p id="recommendationDetail">
+        It provides the strongest overall tradeoff between workload balance, geography,
+        service-line fit, and implementation disruption.
+      </p>
     </section>
 
-    <section class="content-grid">
-      <div class="panel">
-        <h2>Scenario Summary</h2>
-        <p id="summaryText">
-          Balanced Growth provides the best overall tradeoff between capacity, geography, and disruption.
+    <section id="summaryMetrics" class="section-block">
+      <div class="section-heading">
+        <p class="eyebrow">Summary Metrics</p>
+        <h2>Baseline vs Optimized State</h2>
+        <p>
+          High-level metrics comparing the current network against the selected optimized scenario.
         </p>
       </div>
 
-      <div class="panel">
-        <h2>Assignment Changes</h2>
+      <div class="kpi-grid">
+        <div class="kpi-card">
+          <span>New Opportunities Absorbed</span>
+          <strong id="newOpportunitiesKpi">18</strong>
+        </div>
+
+        <div class="kpi-card">
+          <span>Recommended Reassignments</span>
+          <strong id="reassignmentsKpi">12</strong>
+        </div>
+
+        <div class="kpi-card">
+          <span>Leaders Over Capacity</span>
+          <strong id="capacityRiskKpi">1</strong>
+        </div>
+
+        <div class="kpi-card">
+          <span>Workload Balance Improvement</span>
+          <strong id="workloadImprovementKpi">22%</strong>
+        </div>
+
+        <div class="kpi-card">
+          <span>Objective Score</span>
+          <strong id="objectiveScoreKpi">0.72</strong>
+        </div>
+
+        <div class="kpi-card">
+          <span>Constraint Violations</span>
+          <strong id="constraintViolationsKpi">1</strong>
+        </div>
+      </div>
+
+      <div class="comparison-panel">
+        <div>
+          <h3>Current State</h3>
+          <ul id="baselineSummaryList"></ul>
+        </div>
+
+        <div>
+          <h3>Optimized State</h3>
+          <ul id="optimizedSummaryList"></ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="newOpportunities" class="section-block">
+      <div class="section-heading">
+        <p class="eyebrow">New Opportunities</p>
+        <h2>Opportunity Absorption</h2>
+        <p>
+          Shows how new facilities are absorbed into the existing leadership structure.
+        </p>
+      </div>
+
+      <div class="table-wrapper">
         <table>
           <thead>
             <tr>
-              <th>Facility</th>
-              <th>Current VP</th>
-              <th>Recommended VP</th>
-              <th>Reason</th>
+              <th>Opportunity</th>
+              <th>Recommended Leader</th>
+              <th>Region</th>
+              <th>Service Line</th>
+              <th>Complexity</th>
+              <th>Workload</th>
+              <th>Capacity Impact</th>
             </tr>
           </thead>
-          <tbody id="assignmentTable">
-            <tr>
-              <td>Facility A</td>
-              <td>VP 1</td>
-              <td>VP 2</td>
-              <td>Improves workload balance</td>
-            </tr>
-            <tr>
-              <td>Facility B</td>
-              <td>VP 3</td>
-              <td>VP 3</td>
-              <td>No change recommended</td>
-            </tr>
-          </tbody>
+          <tbody id="newOpportunityTable"></tbody>
         </table>
+      </div>
+    </section>
+
+    <section id="workloadVisualization" class="section-block">
+      <div class="section-heading">
+        <p class="eyebrow">Workload Visualization</p>
+        <h2>Leader Workload and Capacity</h2>
+        <p>
+          Compares leader workload against capacity to identify trends, gaps, and outliers.
+        </p>
+      </div>
+
+      <div class="workload-list" id="workloadList"></div>
+    </section>
+
+    <section id="sensitivityVisualization" class="section-block">
+      <div class="section-heading">
+        <p class="eyebrow">Sensitivity Visualization</p>
+        <h2>Weight Configuration Comparison</h2>
+        <p>
+          Displays objective scores and constraint violations across model weight configurations.
+        </p>
+      </div>
+
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Scenario</th>
+              <th>Objective Score</th>
+              <th>Constraint Violations</th>
+              <th>Reassignments</th>
+              <th>Leaders Over Capacity</th>
+              <th>Recommended Use</th>
+            </tr>
+          </thead>
+          <tbody id="sensitivityTable"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="executiveDrilldown" class="section-block">
+      <div class="section-heading">
+        <p class="eyebrow">Executive Drill-Down</p>
+        <h2>Leader-Specific Summary</h2>
+        <p>
+          Review how the selected scenario affects each leader’s portfolio, workload, and opportunities.
+        </p>
+      </div>
+
+      <div class="scenario-controls compact">
+        <div class="control-card">
+          <label for="leaderSelect">Leader</label>
+          <select id="leaderSelect"></select>
+        </div>
+      </div>
+
+      <div class="kpi-grid small">
+        <div class="kpi-card">
+          <span>Baseline Workload</span>
+          <strong id="leaderBaselineWorkload">0</strong>
+        </div>
+
+        <div class="kpi-card">
+          <span>Optimized Workload</span>
+          <strong id="leaderOptimizedWorkload">0</strong>
+        </div>
+
+        <div class="kpi-card">
+          <span>Capacity</span>
+          <strong id="leaderCapacity">0</strong>
+        </div>
+
+        <div class="kpi-card">
+          <span>Status</span>
+          <strong id="leaderStatus">Within Capacity</strong>
+        </div>
+      </div>
+
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Facility / Opportunity</th>
+              <th>Type</th>
+              <th>Service Line</th>
+              <th>Workload</th>
+              <th>Assignment Status</th>
+            </tr>
+          </thead>
+          <tbody id="leaderDetailTable"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="relationshipNetwork" class="section-block">
+      <div class="section-heading">
+        <p class="eyebrow">Relationship Networking</p>
+        <h2>Organizational Relationship View</h2>
+        <p>
+          Filtered view of how leaders, facilities, opportunities, and service lines are connected.
+        </p>
+      </div>
+
+      <div class="network-filters">
+        <button class="filter-button active" data-filter="all">All</button>
+        <button class="filter-button" data-filter="leaders">Leaders</button>
+        <button class="filter-button" data-filter="facilities">Facilities</button>
+        <button class="filter-button" data-filter="opportunities">Opportunities</button>
+        <button class="filter-button" data-filter="serviceLines">Service Lines</button>
+      </div>
+
+      <div class="network-panel">
+        <div id="networkNodes" class="network-nodes"></div>
+        <div id="networkEdges" class="network-edges"></div>
       </div>
     </section>
   </main>
