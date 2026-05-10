@@ -136,33 +136,33 @@ const dashboardData = {
   },
 
   leaders: [
-    { name: "VP Adams", baseline: 18.2, optimized: 17.4, capacity: 18, status: "Near Capacity", region: "Southeast" },
-    { name: "VP Brooks", baseline: 21.1, optimized: 18.7, capacity: 18, status: "Over Capacity", region: "Midwest" },
-    { name: "VP Chen", baseline: 14.4, optimized: 16.2, capacity: 18, status: "Within Capacity", region: "West" },
-    { name: "VP Davis", baseline: 11.9, optimized: 14.6, capacity: 18, status: "Available Capacity", region: "Northeast" },
-    { name: "VP Ellis", baseline: 19.8, optimized: 17.9, capacity: 18, status: "Near Capacity", region: "Southwest" },
-    { name: "VP Foster", baseline: 16.3, optimized: 16.8, capacity: 18, status: "Within Capacity", region: "Central" },
-    { name: "VP Garcia", baseline: 20.6, optimized: 18.4, capacity: 18, status: "Over Capacity", region: "West" },
-    { name: "VP Harris", baseline: 13.7, optimized: 15.1, capacity: 18, status: "Within Capacity", region: "Northeast" },
-    { name: "VP Ibrahim", baseline: 12.8, optimized: 14.0, capacity: 18, status: "Available Capacity", region: "Midwest" },
-    { name: "VP Johnson", baseline: 17.6, optimized: 17.1, capacity: 18, status: "Within Capacity", region: "Southeast" },
-    { name: "VP Kim", baseline: 15.2, optimized: 16.4, capacity: 18, status: "Within Capacity", region: "West" },
-    { name: "VP Lopez", baseline: 10.8, optimized: 13.5, capacity: 18, status: "Available Capacity", region: "Southwest" },
-    { name: "VP Morgan", baseline: 18.9, optimized: 17.7, capacity: 18, status: "Near Capacity", region: "Central" },
-    { name: "VP Nelson", baseline: 13.2, optimized: 15.8, capacity: 18, status: "Within Capacity", region: "Northeast" }
+    { name: "VP-001", baseline: 18.2, optimized: 17.4, capacity: 18, status: "Near Capacity", region: "Southeast" },
+    { name: "VP-002", baseline: 21.1, optimized: 18.7, capacity: 18, status: "Over Capacity", region: "Midwest" },
+    { name: "VP-003", baseline: 14.4, optimized: 16.2, capacity: 18, status: "Within Capacity", region: "West" },
+    { name: "VP-004", baseline: 11.9, optimized: 14.6, capacity: 18, status: "Available Capacity", region: "Northeast" },
+    { name: "VP-005", baseline: 19.8, optimized: 17.9, capacity: 18, status: "Near Capacity", region: "Southwest" },
+    { name: "VP-006", baseline: 16.3, optimized: 16.8, capacity: 18, status: "Within Capacity", region: "Central" },
+    { name: "VP-007", baseline: 20.6, optimized: 18.4, capacity: 18, status: "Over Capacity", region: "West" },
+    { name: "VP-008", baseline: 13.7, optimized: 15.1, capacity: 18, status: "Within Capacity", region: "Northeast" },
+    { name: "VP-009", baseline: 12.8, optimized: 14.0, capacity: 18, status: "Available Capacity", region: "Midwest" },
+    { name: "VP-010", baseline: 17.6, optimized: 17.1, capacity: 18, status: "Within Capacity", region: "Southeast" },
+    { name: "VP-011", baseline: 15.2, optimized: 16.4, capacity: 18, status: "Within Capacity", region: "West" },
+    { name: "VP-012", baseline: 10.8, optimized: 13.5, capacity: 18, status: "Available Capacity", region: "Southwest" },
+    { name: "VP-013", baseline: 18.9, optimized: 17.7, capacity: 18, status: "Near Capacity", region: "Central" },
+    { name: "VP-014", baseline: 13.2, optimized: 15.8, capacity: 18, status: "Within Capacity", region: "Northeast" }
   ],
 
   opportunities: [
-    { name: "Opportunity A", leader: "VP Davis", region: "Northeast", serviceLine: "Behavioral Health", complexity: "High", workload: 1.8, impact: "Within Capacity", review: true },
-    { name: "Opportunity B", leader: "VP Chen", region: "West", serviceLine: "Primary Care", complexity: "Medium", workload: 1.2, impact: "Within Capacity", review: false },
-    { name: "Opportunity C", leader: "VP Lopez", region: "Southwest", serviceLine: "Specialty Care", complexity: "High", workload: 1.7, impact: "Available Capacity", review: false },
-    { name: "Opportunity D", leader: "VP Ibrahim", region: "Midwest", serviceLine: "Behavioral Health", complexity: "Low", workload: 0.8, impact: "Available Capacity", review: false },
-    { name: "Opportunity E", leader: "VP Brooks", region: "Midwest", serviceLine: "Urgent Care", complexity: "High", workload: 1.9, impact: "Over Capacity", review: true },
-    { name: "Opportunity F", leader: "VP Kim", region: "West", serviceLine: "Primary Care", complexity: "Medium", workload: 1.1, impact: "Within Capacity", review: false },
-    { name: "Opportunity G", leader: "VP Harris", region: "Northeast", serviceLine: "Specialty Care", complexity: "Medium", workload: 1.4, impact: "Within Capacity", review: false },
-    { name: "Opportunity H", leader: "VP Foster", region: "Central", serviceLine: "Behavioral Health", complexity: "High", workload: 1.6, impact: "Within Capacity", review: true },
-    { name: "Opportunity I", leader: "VP Johnson", region: "Southeast", serviceLine: "Primary Care", complexity: "Low", workload: 0.9, impact: "Within Capacity", review: false },
-    { name: "Opportunity J", leader: "VP Adams", region: "Southeast", serviceLine: "Specialty Care", complexity: "High", workload: 1.5, impact: "Near Capacity", review: true }
+    { name: "Opportunity 001", leader: "VP-004", region: "Northeast", serviceLine: "Behavioral Health", complexity: "High", workload: 1.8, impact: "Within Capacity", review: true },
+    { name: "Opportunity 002", leader: "VP-003", region: "West", serviceLine: "Primary Care", complexity: "Medium", workload: 1.2, impact: "Within Capacity", review: false },
+    { name: "Opportunity 003", leader: "VP-012", region: "Southwest", serviceLine: "Specialty Care", complexity: "High", workload: 1.7, impact: "Available Capacity", review: false },
+    { name: "Opportunity 004", leader: "VP-009", region: "Midwest", serviceLine: "Behavioral Health", complexity: "Low", workload: 0.8, impact: "Available Capacity", review: false },
+    { name: "Opportunity 005", leader: "VP-002", region: "Midwest", serviceLine: "Urgent Care", complexity: "High", workload: 1.9, impact: "Over Capacity", review: true },
+    { name: "Opportunity 006", leader: "VP-011", region: "West", serviceLine: "Primary Care", complexity: "Medium", workload: 1.1, impact: "Within Capacity", review: false },
+    { name: "Opportunity 007", leader: "VP-008", region: "Northeast", serviceLine: "Specialty Care", complexity: "Medium", workload: 1.4, impact: "Within Capacity", review: false },
+    { name: "Opportunity 008", leader: "VP-006", region: "Central", serviceLine: "Behavioral Health", complexity: "High", workload: 1.6, impact: "Within Capacity", review: true },
+    { name: "Opportunity 009", leader: "VP-010", region: "Southeast", serviceLine: "Primary Care", complexity: "Low", workload: 0.9, impact: "Within Capacity", review: false },
+    { name: "Opportunity 010", leader: "VP-001", region: "Southeast", serviceLine: "Specialty Care", complexity: "High", workload: 1.5, impact: "Near Capacity", review: true }
   ],
 
   sensitivity: [
@@ -174,52 +174,127 @@ const dashboardData = {
   ],
 
   leaderDetails: {
-    "VP Adams": [
+    "VP-001": [
       { name: "Facility 101", type: "Existing Facility", serviceLine: "Behavioral Health", region: "Southeast", workload: 2.4, status: "Retained" },
       { name: "Facility 117", type: "Existing Facility", serviceLine: "Primary Care", region: "Southeast", workload: 2.1, status: "Retained" },
-      { name: "Opportunity J", type: "New Opportunity", serviceLine: "Specialty Care", region: "Southeast", workload: 1.5, status: "Added" }
+      { name: "Opportunity 010", type: "New Opportunity", serviceLine: "Specialty Care", region: "Southeast", workload: 1.5, status: "Added" }
     ],
-    "VP Brooks": [
+    "VP-002": [
       { name: "Facility 204", type: "Existing Facility", serviceLine: "Urgent Care", region: "Midwest", workload: 2.7, status: "Retained" },
       { name: "Facility 219", type: "Existing Facility", serviceLine: "Primary Care", region: "Midwest", workload: 1.8, status: "Reassigned Out" },
-      { name: "Opportunity E", type: "New Opportunity", serviceLine: "Urgent Care", region: "Midwest", workload: 1.9, status: "Review Required" }
+      { name: "Opportunity 005", type: "New Opportunity", serviceLine: "Urgent Care", region: "Midwest", workload: 1.9, status: "Review Required" }
     ],
-    "VP Chen": [
+    "VP-003": [
       { name: "Facility 310", type: "Existing Facility", serviceLine: "Primary Care", region: "West", workload: 2.0, status: "Retained" },
-      { name: "Opportunity B", type: "New Opportunity", serviceLine: "Primary Care", region: "West", workload: 1.2, status: "Added" }
+      { name: "Opportunity 002", type: "New Opportunity", serviceLine: "Primary Care", region: "West", workload: 1.2, status: "Added" }
     ],
-    "VP Davis": [
+    "VP-004": [
       { name: "Facility 405", type: "Existing Facility", serviceLine: "Behavioral Health", region: "Northeast", workload: 1.6, status: "Retained" },
-      { name: "Opportunity A", type: "New Opportunity", serviceLine: "Behavioral Health", region: "Northeast", workload: 1.8, status: "Review Required" }
+      { name: "Opportunity 001", type: "New Opportunity", serviceLine: "Behavioral Health", region: "Northeast", workload: 1.8, status: "Review Required" }
+    ],
+    "VP-005": [
+      { name: "Facility 512", type: "Existing Facility", serviceLine: "Specialty Care", region: "Southwest", workload: 2.2, status: "Retained" },
+      { name: "Facility 529", type: "Existing Facility", serviceLine: "Primary Care", region: "Southwest", workload: 1.7, status: "Retained" }
+    ],
+    "VP-006": [
+      { name: "Facility 601", type: "Existing Facility", serviceLine: "Behavioral Health", region: "Central", workload: 2.0, status: "Retained" },
+      { name: "Opportunity 008", type: "New Opportunity", serviceLine: "Behavioral Health", region: "Central", workload: 1.6, status: "Review Required" }
+    ],
+    "VP-007": [
+      { name: "Facility 704", type: "Existing Facility", serviceLine: "Urgent Care", region: "West", workload: 2.5, status: "Retained" },
+      { name: "Facility 718", type: "Existing Facility", serviceLine: "Specialty Care", region: "West", workload: 2.0, status: "Reassigned Out" }
+    ],
+    "VP-008": [
+      { name: "Facility 802", type: "Existing Facility", serviceLine: "Specialty Care", region: "Northeast", workload: 1.9, status: "Retained" },
+      { name: "Opportunity 007", type: "New Opportunity", serviceLine: "Specialty Care", region: "Northeast", workload: 1.4, status: "Added" }
+    ],
+    "VP-009": [
+      { name: "Facility 909", type: "Existing Facility", serviceLine: "Behavioral Health", region: "Midwest", workload: 1.5, status: "Retained" },
+      { name: "Opportunity 004", type: "New Opportunity", serviceLine: "Behavioral Health", region: "Midwest", workload: 0.8, status: "Added" }
+    ],
+    "VP-010": [
+      { name: "Facility 1003", type: "Existing Facility", serviceLine: "Primary Care", region: "Southeast", workload: 2.3, status: "Retained" },
+      { name: "Opportunity 009", type: "New Opportunity", serviceLine: "Primary Care", region: "Southeast", workload: 0.9, status: "Added" }
+    ],
+    "VP-011": [
+      { name: "Facility 1108", type: "Existing Facility", serviceLine: "Primary Care", region: "West", workload: 2.1, status: "Retained" },
+      { name: "Opportunity 006", type: "New Opportunity", serviceLine: "Primary Care", region: "West", workload: 1.1, status: "Added" }
+    ],
+    "VP-012": [
+      { name: "Facility 1214", type: "Existing Facility", serviceLine: "Specialty Care", region: "Southwest", workload: 1.8, status: "Retained" },
+      { name: "Opportunity 003", type: "New Opportunity", serviceLine: "Specialty Care", region: "Southwest", workload: 1.7, status: "Added" }
+    ],
+    "VP-013": [
+      { name: "Facility 1307", type: "Existing Facility", serviceLine: "Urgent Care", region: "Central", workload: 2.6, status: "Retained" },
+      { name: "Facility 1325", type: "Existing Facility", serviceLine: "Primary Care", region: "Central", workload: 1.9, status: "Retained" }
+    ],
+    "VP-014": [
+      { name: "Facility 1406", type: "Existing Facility", serviceLine: "Primary Care", region: "Northeast", workload: 1.7, status: "Retained" },
+      { name: "Facility 1418", type: "Existing Facility", serviceLine: "Behavioral Health", region: "Northeast", workload: 1.6, status: "Retained" }
     ]
   },
 
   network: {
     nodes: [
-      { id: "VP Adams", type: "leader", review: false },
-      { id: "VP Brooks", type: "leader", review: true },
-      { id: "VP Chen", type: "leader", review: false },
-      { id: "VP Davis", type: "leader", review: true },
+      { id: "VP-001", type: "leader", review: false },
+      { id: "VP-002", type: "leader", review: true },
+      { id: "VP-003", type: "leader", review: false },
+      { id: "VP-004", type: "leader", review: true },
+      { id: "VP-005", type: "leader", review: false },
+      { id: "VP-006", type: "leader", review: true },
+      { id: "VP-007", type: "leader", review: true },
+      { id: "VP-008", type: "leader", review: false },
+      { id: "VP-009", type: "leader", review: false },
+      { id: "VP-010", type: "leader", review: false },
+      { id: "VP-011", type: "leader", review: false },
+      { id: "VP-012", type: "leader", review: false },
+      { id: "VP-013", type: "leader", review: false },
+      { id: "VP-014", type: "leader", review: false },
       { id: "Facility 101", type: "facility", review: false },
       { id: "Facility 204", type: "facility", review: false },
       { id: "Facility 310", type: "facility", review: false },
-      { id: "Opportunity A", type: "opportunity", review: true },
-      { id: "Opportunity B", type: "opportunity", review: false },
-      { id: "Opportunity E", type: "opportunity", review: true },
+      { id: "Facility 405", type: "facility", review: false },
+      { id: "Facility 704", type: "facility", review: true },
+      { id: "Opportunity 001", type: "opportunity", review: true },
+      { id: "Opportunity 002", type: "opportunity", review: false },
+      { id: "Opportunity 003", type: "opportunity", review: false },
+      { id: "Opportunity 004", type: "opportunity", review: false },
+      { id: "Opportunity 005", type: "opportunity", review: true },
+      { id: "Opportunity 006", type: "opportunity", review: false },
+      { id: "Opportunity 007", type: "opportunity", review: false },
+      { id: "Opportunity 008", type: "opportunity", review: true },
+      { id: "Opportunity 009", type: "opportunity", review: false },
+      { id: "Opportunity 010", type: "opportunity", review: true },
       { id: "Behavioral Health", type: "service-line", review: false },
       { id: "Primary Care", type: "service-line", review: false },
+      { id: "Specialty Care", type: "service-line", review: false },
       { id: "Urgent Care", type: "service-line", review: false }
     ],
     edges: [
-      { source: "VP Adams", target: "Facility 101", relationship: "current assignment" },
-      { source: "VP Brooks", target: "Facility 204", relationship: "current assignment" },
-      { source: "VP Chen", target: "Facility 310", relationship: "current assignment" },
-      { source: "VP Davis", target: "Opportunity A", relationship: "recommended assignment" },
-      { source: "VP Chen", target: "Opportunity B", relationship: "recommended assignment" },
-      { source: "VP Brooks", target: "Opportunity E", relationship: "review required" },
-      { source: "Opportunity A", target: "Behavioral Health", relationship: "service line" },
-      { source: "Opportunity B", target: "Primary Care", relationship: "service line" },
-      { source: "Opportunity E", target: "Urgent Care", relationship: "service line" }
+      { source: "VP-001", target: "Facility 101", relationship: "current assignment" },
+      { source: "VP-001", target: "Opportunity 010", relationship: "recommended assignment" },
+      { source: "VP-002", target: "Facility 204", relationship: "current assignment" },
+      { source: "VP-002", target: "Opportunity 005", relationship: "review required" },
+      { source: "VP-003", target: "Facility 310", relationship: "current assignment" },
+      { source: "VP-003", target: "Opportunity 002", relationship: "recommended assignment" },
+      { source: "VP-004", target: "Facility 405", relationship: "current assignment" },
+      { source: "VP-004", target: "Opportunity 001", relationship: "review required" },
+      { source: "VP-006", target: "Opportunity 008", relationship: "review required" },
+      { source: "VP-008", target: "Opportunity 007", relationship: "recommended assignment" },
+      { source: "VP-009", target: "Opportunity 004", relationship: "recommended assignment" },
+      { source: "VP-010", target: "Opportunity 009", relationship: "recommended assignment" },
+      { source: "VP-011", target: "Opportunity 006", relationship: "recommended assignment" },
+      { source: "VP-012", target: "Opportunity 003", relationship: "recommended assignment" },
+      { source: "Opportunity 001", target: "Behavioral Health", relationship: "service line" },
+      { source: "Opportunity 002", target: "Primary Care", relationship: "service line" },
+      { source: "Opportunity 003", target: "Specialty Care", relationship: "service line" },
+      { source: "Opportunity 004", target: "Behavioral Health", relationship: "service line" },
+      { source: "Opportunity 005", target: "Urgent Care", relationship: "service line" },
+      { source: "Opportunity 006", target: "Primary Care", relationship: "service line" },
+      { source: "Opportunity 007", target: "Specialty Care", relationship: "service line" },
+      { source: "Opportunity 008", target: "Behavioral Health", relationship: "service line" },
+      { source: "Opportunity 009", target: "Primary Care", relationship: "service line" },
+      { source: "Opportunity 010", target: "Specialty Care", relationship: "service line" }
     ]
   },
 
@@ -244,9 +319,9 @@ const dashboardData = {
     },
     {
       date: "Phase 2",
-      decision: "Use mock data before connecting real exports.",
-      reason: "Allows the UI structure to be validated before final data integration.",
-      status: "In Progress"
+      decision: "Use VP IDs instead of mock VP names.",
+      reason: "VP IDs are cleaner, safer, and better aligned with the model output structure.",
+      status: "Complete"
     }
   ]
 };
