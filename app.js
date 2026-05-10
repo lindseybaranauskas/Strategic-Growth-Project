@@ -1,4 +1,22 @@
 const dashboardData = {
+  currentState: {
+    existingFacilities: 128,
+    currentRiskAreas: 5,
+    serviceLines: {
+      "Behavioral Health": 36,
+      "Primary Care": 42,
+      "Specialty Care": 28,
+      "Urgent Care": 22
+    },
+    regions: {
+      Southeast: 29,
+      Midwest: 24,
+      West: 31,
+      Northeast: 26,
+      Southwest: 18
+    }
+  },
+
   scenarios: {
     "Balanced Growth": {
       recommendationHeadline: "Balanced Growth is the recommended default scenario.",
@@ -203,15 +221,58 @@ const dashboardData = {
       { source: "Opportunity B", target: "Primary Care", relationship: "service line" },
       { source: "Opportunity E", target: "Urgent Care", relationship: "service line" }
     ]
-  }
+  },
+
+  decisionLog: [
+    {
+      date: "Phase 1",
+      decision: "Use GitHub Pages for the first UI prototype.",
+      reason: "Fastest way to publish a static executive-facing dashboard.",
+      status: "Complete"
+    },
+    {
+      date: "Phase 1",
+      decision: "Keep Colab as the model layer.",
+      reason: "The optimization logic already exists there and can export structured outputs.",
+      status: "Complete"
+    },
+    {
+      date: "Phase 2",
+      decision: "Move from one long dashboard to a tabbed portal.",
+      reason: "The project needs separate views for current state, model outputs, drill-down, network, and reporting.",
+      status: "In Progress"
+    },
+    {
+      date: "Phase 2",
+      decision: "Use mock data before connecting real exports.",
+      reason: "Allows the UI structure to be validated before final data integration.",
+      status: "In Progress"
+    }
+  ]
 };
 
+const tabButtons = document.querySelectorAll(".tab-button");
+const tabPanels = document.querySelectorAll(".tab-panel");
+const navCards = document.querySelectorAll(".nav-card");
+
 const scenarioSelect = document.getElementById("scenarioSelect");
-const leaderFilter = document.getElementById("leaderFilter");
+const scenarioLeaderFilter = document.getElementById("scenarioLeaderFilter");
 const drilldownLeaderSelect = document.getElementById("drilldownLeaderSelect");
 const opportunitySearch = document.getElementById("opportunitySearch");
 const opportunityReviewFilter = document.getElementById("opportunityReviewFilter");
 const workloadStatusFilter = document.getElementById("workloadStatusFilter");
+
+function switchTab(tabId) {
+  tabButtons.forEach(button => {
+    button.classList.toggle("active", button.dataset.tab === tabId);
+  });
+
+  tabPanels.forEach(panel => {
+    panel.classList.toggle("active", panel.id === tabId);
+  });
+
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
 
 function getBadgeClass(value) {
   const text = String(value).toLowerCase();
@@ -220,11 +281,11 @@ function getBadgeClass(value) {
     return "risk";
   }
 
-  if (text.includes("near") || text.includes("medium")) {
+  if (text.includes("near") || text.includes("medium") || text.includes("in progress")) {
     return "warning";
   }
 
-  if (text.includes("retained") || text.includes("within") || text.includes("available") || text.includes("added")) {
+  if (text.includes("retained") || text.includes("within") || text.includes("available") || text.includes("added") || text.includes("complete")) {
     return "good";
   }
 
@@ -236,37 +297,17 @@ function renderList(id, items) {
   element.innerHTML = items.map(item => `<li>${item}</li>`).join("");
 }
 
-function renderScenario() {
-  const scenario = dashboardData.scenarios[scenarioSelect.value];
-
-  document.getElementById("recommendationHeadline").textContent = scenario.recommendationHeadline;
-  document.getElementById("recommendationDetail").textContent = scenario.recommendationDetail;
-
-  document.getElementById("totalLeadersMetric").textContent = scenario.summaryMetrics.totalLeaders;
-  document.getElementById("newOpportunitiesMetric").textContent = scenario.summaryMetrics.newOpportunities;
-  document.getElementById("reassignmentsMetric").textContent = scenario.summaryMetrics.reassignments;
-  document.getElementById("leadersOverCapacityMetric").textContent = scenario.summaryMetrics.leadersOverCapacity;
-  document.getElementById("workloadImprovementMetric").textContent = scenario.summaryMetrics.workloadImprovement;
-  document.getElementById("objectiveScoreMetric").textContent = scenario.summaryMetrics.objectiveScore;
-
-  renderList("baselineNarrative", scenario.baselineNarrative);
-  renderList("optimizedNarrative", scenario.optimizedNarrative);
+function average(values) {
+  if (!values.length) return 0;
+  return values.reduce((sum, value) => sum + value, 0) / values.length;
 }
 
-function populateLeaderSelectors() {
-  const leaders = dashboardData.leaders.map(leader => leader.name);
-
-  leaders.forEach(name => {
-    const filterOption = document.createElement("option");
-    filterOption.value = name;
-    filterOption.textContent = name;
-    leaderFilter.appendChild(filterOption);
-
-    const drilldownOption = document.createElement("option");
-    drilldownOption.value = name;
-    drilldownOption.textContent = name;
-    drilldownLeaderSelect.appendChild(drilldownOption);
-  });
+function countBy(items, key) {
+  return items.reduce((acc, item) => {
+    const value = item[key];
+    acc[value] = (acc[value] || 0) + 1;
+    return acc;
+  }, {});
 }
 
 function renderBarChart(containerId, rows, options = {}) {
@@ -289,12 +330,101 @@ function renderBarChart(containerId, rows, options = {}) {
   }).join("");
 }
 
-function countBy(items, key) {
-  return items.reduce((acc, item) => {
-    const value = item[key];
-    acc[value] = (acc[value] || 0) + 1;
-    return acc;
-  }, {});
+function renderCurrentState() {
+  const currentUtilizations = dashboardData.leaders.map(leader =>
+    Math.round((leader.baseline / leader.capacity) * 100)
+  );
+
+  const currentOverCapacity = dashboardData.leaders.filter(leader =>
+    leader.baseline > leader.capacity
+  ).length;
+
+  document.getElementById("currentLeaderCount").textContent = dashboardData.leaders.length;
+  document.getElementById("currentFacilityCount").textContent = dashboardData.currentState.existingFacilities;
+  document.getElementById("currentOverCapacity").textContent = currentOverCapacity;
+  document.getElementById("currentAverageUtilization").textContent =
+    `${Math.round(average(currentUtilizations))}%`;
+  document.getElementById("currentHighestUtilization").textContent =
+    `${Math.max(...currentUtilizations)}%`;
+  document.getElementById("currentRiskAreas").textContent = dashboardData.currentState.currentRiskAreas;
+
+  document.getElementById("currentWorkloadChart").innerHTML = dashboardData.leaders.map(leader => {
+    const utilization = Math.round((leader.baseline / leader.capacity) * 100);
+    const fillClass =
+      utilization > 100 ? "red" :
+      utilization >= 95 ? "yellow" :
+      "green";
+
+    return `
+      <div class="workload-row">
+        <div class="workload-name">${leader.name}</div>
+        <div class="workload-bars">
+          <div class="workload-bar-line">
+            <span class="workload-bar-label">Current</span>
+            <div class="chart-track">
+              <div class="chart-fill ${fillClass}" style="width: ${Math.min(utilization, 120)}%"></div>
+            </div>
+          </div>
+        </div>
+        <div>${utilization}%</div>
+        <div><span class="badge ${getBadgeClass(leader.baseline > leader.capacity ? "Over Capacity" : leader.status)}">${leader.baseline > leader.capacity ? "Over Capacity" : leader.status}</span></div>
+      </div>
+    `;
+  }).join("");
+
+  renderBarChart(
+    "currentServiceLineChart",
+    Object.entries(dashboardData.currentState.serviceLines).map(([label, value]) => ({ label, value })),
+    { fillClass: "green" }
+  );
+
+  renderBarChart(
+    "currentRegionChart",
+    Object.entries(dashboardData.currentState.regions).map(([label, value]) => ({ label, value })),
+    { fillClass: "purple" }
+  );
+}
+
+function renderScenario() {
+  const scenario = dashboardData.scenarios[scenarioSelect.value];
+
+  document.getElementById("recommendationHeadline").textContent = scenario.recommendationHeadline;
+  document.getElementById("recommendationDetail").textContent = scenario.recommendationDetail;
+
+  document.getElementById("totalLeadersMetric").textContent = scenario.summaryMetrics.totalLeaders;
+  document.getElementById("newOpportunitiesMetric").textContent = scenario.summaryMetrics.newOpportunities;
+  document.getElementById("reassignmentsMetric").textContent = scenario.summaryMetrics.reassignments;
+  document.getElementById("leadersOverCapacityMetric").textContent = scenario.summaryMetrics.leadersOverCapacity;
+  document.getElementById("workloadImprovementMetric").textContent = scenario.summaryMetrics.workloadImprovement;
+  document.getElementById("objectiveScoreMetric").textContent = scenario.summaryMetrics.objectiveScore;
+
+  document.getElementById("homeRecommendationHeadline").textContent = scenario.recommendationHeadline;
+  document.getElementById("homeRecommendationDetail").textContent = scenario.recommendationDetail;
+  document.getElementById("homeTotalLeaders").textContent = scenario.summaryMetrics.totalLeaders;
+  document.getElementById("homeNewOpportunities").textContent = scenario.summaryMetrics.newOpportunities;
+  document.getElementById("homeReassignments").textContent = scenario.summaryMetrics.reassignments;
+  document.getElementById("homeOverCapacity").textContent = scenario.summaryMetrics.leadersOverCapacity;
+  document.getElementById("homeWorkloadImprovement").textContent = scenario.summaryMetrics.workloadImprovement;
+  document.getElementById("homeObjectiveScore").textContent = scenario.summaryMetrics.objectiveScore;
+
+  renderList("baselineNarrative", scenario.baselineNarrative);
+  renderList("optimizedNarrative", scenario.optimizedNarrative);
+}
+
+function populateLeaderSelectors() {
+  const leaders = dashboardData.leaders.map(leader => leader.name);
+
+  leaders.forEach(name => {
+    const filterOption = document.createElement("option");
+    filterOption.value = name;
+    filterOption.textContent = name;
+    scenarioLeaderFilter.appendChild(filterOption);
+
+    const drilldownOption = document.createElement("option");
+    drilldownOption.value = name;
+    drilldownOption.textContent = name;
+    drilldownLeaderSelect.appendChild(drilldownOption);
+  });
 }
 
 function renderOpportunityCharts() {
@@ -350,7 +480,7 @@ function renderOpportunityTable() {
 }
 
 function getVisibleLeaders() {
-  const selectedLeader = leaderFilter.value;
+  const selectedLeader = scenarioLeaderFilter.value;
   const selectedStatus = workloadStatusFilter.value;
 
   return dashboardData.leaders.filter(leader => {
@@ -505,14 +635,34 @@ function setupNetworkButtons() {
   });
 }
 
+function renderDecisionLog() {
+  document.getElementById("decisionLogTable").innerHTML = dashboardData.decisionLog.map(row => `
+    <tr>
+      <td>${row.date}</td>
+      <td>${row.decision}</td>
+      <td>${row.reason}</td>
+      <td><span class="badge ${getBadgeClass(row.status)}">${row.status}</span></td>
+    </tr>
+  `).join("");
+}
+
+tabButtons.forEach(button => {
+  button.addEventListener("click", () => switchTab(button.dataset.tab));
+});
+
+navCards.forEach(card => {
+  card.addEventListener("click", () => switchTab(card.dataset.goTab));
+});
+
 scenarioSelect.addEventListener("change", renderScenario);
-leaderFilter.addEventListener("change", renderWorkloadChart);
+scenarioLeaderFilter.addEventListener("change", renderWorkloadChart);
 workloadStatusFilter.addEventListener("change", renderWorkloadChart);
 opportunitySearch.addEventListener("input", renderOpportunityTable);
 opportunityReviewFilter.addEventListener("change", renderOpportunityTable);
 drilldownLeaderSelect.addEventListener("change", renderLeaderDrilldown);
 
 populateLeaderSelectors();
+renderCurrentState();
 renderScenario();
 renderOpportunityCharts();
 renderOpportunityTable();
@@ -521,3 +671,4 @@ renderSensitivity();
 renderLeaderDrilldown();
 renderNetwork();
 setupNetworkButtons();
+renderDecisionLog();
