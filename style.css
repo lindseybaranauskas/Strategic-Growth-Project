@@ -26,10 +26,12 @@ body {
 
 .page {
   min-height: 100vh;
-  padding: 48px;
+  padding: 42px;
 }
 
-.hero,
+.site-header,
+.tabs,
+.tab-panel,
 .top-controls,
 .recommendation-card,
 .section-block {
@@ -38,8 +40,8 @@ body {
   margin-right: auto;
 }
 
-.hero {
-  margin-bottom: 28px;
+.site-header {
+  margin-bottom: 24px;
 }
 
 .eyebrow {
@@ -52,9 +54,9 @@ body {
 }
 
 h1 {
-  max-width: 960px;
+  max-width: 980px;
   margin: 0;
-  font-size: 56px;
+  font-size: 54px;
   line-height: 0.98;
   letter-spacing: -0.05em;
 }
@@ -71,15 +73,76 @@ h3 {
 
 .subhead,
 .section-heading p,
-.recommendation-card p {
+.recommendation-card p,
+.hero-card p,
+.panel p {
   color: var(--subtext);
   font-size: 17px;
   line-height: 1.6;
 }
 
 .subhead {
-  max-width: 900px;
+  max-width: 940px;
   font-size: 19px;
+}
+
+.tabs {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  padding: 14px 0 18px;
+  background: var(--bg);
+  margin-bottom: 10px;
+}
+
+.tab-button {
+  border: 1px solid #475569;
+  background: var(--panel-dark);
+  color: #e2e8f0;
+  border-radius: 999px;
+  padding: 11px 16px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.tab-button.active {
+  background: var(--accent);
+  color: var(--panel-dark);
+  border-color: var(--accent);
+  font-weight: 700;
+}
+
+.tab-panel {
+  display: none;
+}
+
+.tab-panel.active {
+  display: block;
+}
+
+.hero-card,
+.control-card,
+.recommendation-card,
+.section-block,
+.panel,
+.metric-card,
+.nav-card {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+}
+
+.hero-card {
+  padding: 32px;
+  margin-bottom: 24px;
+}
+
+.hero-card h2 {
+  max-width: 900px;
+  font-size: 38px;
 }
 
 .top-controls {
@@ -91,16 +154,6 @@ h3 {
 
 .top-controls.compact {
   grid-template-columns: 1fr;
-}
-
-.control-card,
-.recommendation-card,
-.section-block,
-.panel,
-.metric-card {
-  background: var(--panel);
-  border: 1px solid var(--border);
-  border-radius: 20px;
 }
 
 .control-card {
@@ -183,9 +236,39 @@ input,
   line-height: 1.1;
 }
 
+.nav-card-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
+}
+
+.nav-card {
+  display: block;
+  width: 100%;
+  padding: 20px;
+  color: var(--text);
+  text-align: left;
+  cursor: pointer;
+}
+
+.nav-card h3 {
+  margin-bottom: 8px;
+}
+
+.nav-card p {
+  color: var(--subtext);
+  line-height: 1.5;
+  margin-bottom: 0;
+}
+
+.nav-card:hover {
+  border-color: var(--accent);
+}
+
 .before-after-grid,
 .chart-grid,
-.network-grid {
+.network-grid,
+.progress-grid {
   display: grid;
   gap: 18px;
 }
@@ -194,6 +277,14 @@ input,
 .before-after-grid,
 .network-grid {
   grid-template-columns: repeat(2, 1fr);
+}
+
+.progress-grid {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.full-width {
+  grid-column: 1 / -1;
 }
 
 .panel {
@@ -212,6 +303,10 @@ input,
   grid-template-columns: 1.5fr 280px;
   gap: 16px;
   margin-bottom: 18px;
+}
+
+.table-controls.single-control {
+  grid-template-columns: 280px;
 }
 
 .table-wrapper {
@@ -316,6 +411,10 @@ tr:last-child td {
 
 .chart-fill.red {
   background: var(--red);
+}
+
+.chart-fill.purple {
+  background: var(--purple);
 }
 
 .chart-value {
@@ -434,6 +533,12 @@ tr:last-child td {
   padding-top: 10px;
 }
 
+@media (max-width: 1100px) {
+  .nav-card-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
 @media (max-width: 980px) {
   .page {
     padding: 24px;
@@ -441,6 +546,10 @@ tr:last-child td {
 
   h1 {
     font-size: 40px;
+  }
+
+  .hero-card h2 {
+    font-size: 32px;
   }
 
   .top-controls,
@@ -451,7 +560,10 @@ tr:last-child td {
   .before-after-grid,
   .network-grid,
   .table-controls,
-  .workload-row {
+  .table-controls.single-control,
+  .workload-row,
+  .progress-grid,
+  .nav-card-grid {
     grid-template-columns: 1fr;
   }
 
