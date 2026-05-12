@@ -13,8 +13,8 @@
         <p class="eyebrow">Strategic Growth Planning</p>
         <h1>VP Growth Assignment Planning Portal</h1>
         <p class="subhead">
-          Executive decision-support dashboard for current-state assessment, optimized assignment scenarios,
-          leader-level review, relationship mapping, and progress reporting.
+          Executive decision-support portal for current-state assessment, optimized assignment scenarios,
+          leader-level review, network relationships, and progress reporting.
         </p>
       </div>
     </header>
@@ -31,10 +31,10 @@
     <section id="home" class="tab-panel active">
       <section class="hero-card">
         <p class="eyebrow">Executive Overview</p>
-        <h2>Compare today’s VP assignment network against optimized growth scenarios.</h2>
+        <h2>Plan how growth is absorbed into the VP leadership network.</h2>
         <p>
-          This portal is designed to show how new opportunities can be absorbed into the current leadership
-          structure while balancing workload capacity, geography, service-line alignment, and implementation disruption.
+          This portal compares the current VP assignment structure against optimized scenarios that balance
+          workload capacity, geography, EVS/CNS alignment, facility complexity, and implementation disruption.
         </p>
       </section>
 
@@ -42,38 +42,35 @@
         <div class="section-heading">
           <div>
             <p class="eyebrow">Recommended Direction</p>
-            <h2 id="homeRecommendationHeadline">Balanced Growth is the recommended default scenario.</h2>
+            <h2 id="homeRecommendationHeadline"></h2>
           </div>
-          <p id="homeRecommendationDetail">
-            Balanced Growth provides the strongest overall tradeoff between capacity protection, growth absorption,
-            service-line alignment, and implementation disruption.
-          </p>
+          <p id="homeRecommendationDetail"></p>
         </div>
 
-        <div class="metric-grid">
+        <div class="metric-grid compact-metrics">
           <div class="metric-card">
-            <span>Total Leaders</span>
-            <strong id="homeTotalLeaders">14</strong>
+            <span>Total VP Network</span>
+            <strong id="homeTotalLeaders"></strong>
+          </div>
+          <div class="metric-card">
+            <span>Existing Facilities</span>
+            <strong id="homeFacilities"></strong>
           </div>
           <div class="metric-card">
             <span>New Opportunities</span>
-            <strong id="homeNewOpportunities">26</strong>
+            <strong id="homeNewOpportunities"></strong>
           </div>
           <div class="metric-card">
-            <span>Recommended Reassignments</span>
-            <strong id="homeReassignments">14</strong>
+            <span>Recommended Changes</span>
+            <strong id="homeReassignments"></strong>
           </div>
           <div class="metric-card">
             <span>Leaders Over Capacity</span>
-            <strong id="homeOverCapacity">2</strong>
-          </div>
-          <div class="metric-card">
-            <span>Workload Improvement</span>
-            <strong id="homeWorkloadImprovement">18%</strong>
+            <strong id="homeOverCapacity"></strong>
           </div>
           <div class="metric-card">
             <span>Objective Score</span>
-            <strong id="homeObjectiveScore">0.72</strong>
+            <strong id="homeObjectiveScore"></strong>
           </div>
         </div>
       </section>
@@ -85,54 +82,55 @@
             <h2>Where to go next</h2>
           </div>
           <p>
-            Each tab supports a different executive question, from baseline review to model results and project documentation.
+            Each tab is designed around a different executive question: what exists today,
+            what the model recommends, how leaders are affected, and what needs review.
           </p>
         </div>
 
         <div class="nav-card-grid">
           <button class="nav-card" data-go-tab="currentState">
             <h3>Current State</h3>
-            <p>Review baseline workload, leader capacity, existing network pressure, and current structure.</p>
+            <p>Review company-wide baseline metrics, workload pressure, service-line scope, and regional coverage.</p>
           </button>
 
           <button class="nav-card" data-go-tab="scenarios">
             <h3>Scenarios</h3>
-            <p>Compare optimized assignment scenarios, new opportunity absorption, and sensitivity outputs.</p>
+            <p>Compare optimized states, opportunity absorption, sensitivity, and baseline-vs-optimized metrics.</p>
           </button>
 
           <button class="nav-card" data-go-tab="leaderDrilldown">
             <h3>Leader Drill-down</h3>
-            <p>Inspect leader-specific workload, portfolio changes, reassignments, and review flags.</p>
+            <p>Inspect VP-specific workload, portfolio mix, assigned opportunities, and scenario impacts.</p>
           </button>
 
           <button class="nav-card" data-go-tab="network">
             <h3>Network</h3>
-            <p>Explore how leaders, facilities, opportunities, service lines, and review areas connect.</p>
+            <p>Explore how VPs, facilities, opportunities, EVS/CNS, and review flags connect.</p>
           </button>
 
           <button class="nav-card" data-go-tab="progressReports">
             <h3>Progress Reports</h3>
-            <p>Store project updates, decisions, assumptions, open questions, and next steps.</p>
+            <p>Track project updates, decisions, assumptions, next steps, and implementation notes.</p>
           </button>
         </div>
       </section>
     </section>
 
     <section id="currentState" class="tab-panel">
-      <section class="section-block">
+      <section class="section-block flush-section">
         <div class="section-heading">
           <div>
             <p class="eyebrow">Current State</p>
             <h2>Baseline Network Snapshot</h2>
           </div>
           <p>
-            This view summarizes the existing leadership network before optimized assignment logic is applied.
+            Company-wide baseline view of the current VP network before optimized scenario logic is applied.
           </p>
         </div>
 
-        <div class="metric-grid">
+        <div class="metric-grid compact-metrics six-wide">
           <div class="metric-card">
-            <span>Current Leaders</span>
+            <span>Total VP Network</span>
             <strong id="currentLeaderCount"></strong>
           </div>
           <div class="metric-card">
@@ -140,11 +138,11 @@
             <strong id="currentFacilityCount"></strong>
           </div>
           <div class="metric-card">
-            <span>Current Leaders Over Capacity</span>
+            <span>Leaders Over Capacity</span>
             <strong id="currentOverCapacity"></strong>
           </div>
           <div class="metric-card">
-            <span>Average Current Utilization</span>
+            <span>Avg Utilization</span>
             <strong id="currentAverageUtilization"></strong>
           </div>
           <div class="metric-card">
@@ -152,7 +150,7 @@
             <strong id="currentHighestUtilization"></strong>
           </div>
           <div class="metric-card">
-            <span>Current Risk Areas</span>
+            <span>Risk Areas</span>
             <strong id="currentRiskAreas"></strong>
           </div>
         </div>
@@ -162,41 +160,62 @@
         <div class="section-heading">
           <div>
             <p class="eyebrow">Baseline Workload</p>
-            <h2>Leader workload before optimization</h2>
+            <h2>Priority leader workload view</h2>
           </div>
           <p>
-            Leaders above or near capacity are the primary baseline pressure points before adding new growth.
+            Compact view of leaders with notable workload, utilization, or capacity signals. Full-company totals are shown above.
           </p>
         </div>
 
-        <div class="panel">
-          <h3>Current Workload by Leader</h3>
-          <div class="workload-chart" id="currentWorkloadChart"></div>
+        <div class="panel compact-panel">
+          <div class="panel-title-row">
+            <h3>Current Workload Pressure</h3>
+            <span class="soft-label">Representative / priority leaders</span>
+          </div>
+          <div class="workload-chart compact-workload" id="currentWorkloadChart"></div>
         </div>
       </section>
 
       <section class="section-block">
         <div class="section-heading">
           <div>
-            <p class="eyebrow">Baseline Distribution</p>
-            <h2>Facilities by service line and region</h2>
+            <p class="eyebrow">Service-Line Scope</p>
+            <h2>EVS and CNS baseline coverage</h2>
           </div>
           <p>
-            These baseline views help identify concentration patterns in the current operating structure.
+            Service-line scope summarizes facilities, VP coverage, average utilization, and risk by EVS/CNS.
           </p>
         </div>
 
-        <div class="chart-grid two-column">
-          <div class="panel">
-            <h3>Facilities by Service Line</h3>
-            <div class="bar-chart" id="currentServiceLineChart"></div>
-          </div>
+        <div class="scope-card-grid" id="serviceLineScopeCards"></div>
+      </section>
 
-          <div class="panel">
-            <h3>Facilities by Region</h3>
-            <div class="bar-chart" id="currentRegionChart"></div>
+      <section class="section-block">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Regional Coverage</p>
+            <h2>Baseline VP scope by region</h2>
           </div>
+          <p>
+            Regional cards summarize facilities, active VPs, average utilization, highest utilization, and capacity risk.
+          </p>
         </div>
+
+        <div class="scope-card-grid region-grid" id="regionalScopeCards"></div>
+      </section>
+
+      <section class="section-block">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Current-State Observations</p>
+            <h2>Executive interpretation</h2>
+          </div>
+          <p>
+            Summary observations convert baseline statistics into decision-ready context.
+          </p>
+        </div>
+
+        <div class="observation-grid" id="currentStateObservations"></div>
       </section>
     </section>
 
@@ -219,9 +238,14 @@
         </div>
 
         <div class="control-card">
-          <label for="scenarioLeaderFilter">Leader View</label>
-          <select id="scenarioLeaderFilter">
-            <option value="all">All Leaders</option>
+          <label for="scenarioWorkloadView">Workload View</label>
+          <select id="scenarioWorkloadView">
+            <option value="all">All Priority Leaders</option>
+            <option value="Over Capacity">Over Capacity</option>
+            <option value="Near Capacity">Near Capacity</option>
+            <option value="Within Capacity">Within Capacity</option>
+            <option value="Available Capacity">Available Capacity</option>
+            <option value="Largest Change">Largest Change</option>
           </select>
         </div>
       </section>
@@ -236,39 +260,14 @@
         <div class="section-heading">
           <div>
             <p class="eyebrow">Summary Metrics</p>
-            <h2>Baseline vs Optimized State</h2>
+            <h2>Baseline and optimized state comparison</h2>
           </div>
           <p>
-            High-level metrics comparing the current network against the selected optimized scenario.
+            Side-by-side view showing what changes from the current network to the selected optimized scenario.
           </p>
         </div>
 
-        <div class="metric-grid">
-          <div class="metric-card">
-            <span>Total Leaders</span>
-            <strong id="totalLeadersMetric"></strong>
-          </div>
-          <div class="metric-card">
-            <span>New Opportunities Assigned</span>
-            <strong id="newOpportunitiesMetric"></strong>
-          </div>
-          <div class="metric-card">
-            <span>Recommended Reassignments</span>
-            <strong id="reassignmentsMetric"></strong>
-          </div>
-          <div class="metric-card">
-            <span>Leaders Over Capacity</span>
-            <strong id="leadersOverCapacityMetric"></strong>
-          </div>
-          <div class="metric-card">
-            <span>Workload Balance Improvement</span>
-            <strong id="workloadImprovementMetric"></strong>
-          </div>
-          <div class="metric-card">
-            <span>Objective Score</span>
-            <strong id="objectiveScoreMetric"></strong>
-          </div>
-        </div>
+        <div class="compare-metric-grid" id="scenarioComparisonCards"></div>
 
         <div class="before-after-grid">
           <div class="panel">
@@ -287,16 +286,16 @@
         <div class="section-heading">
           <div>
             <p class="eyebrow">New Opportunities</p>
-            <h2>Opportunity Absorption</h2>
+            <h2>Opportunity absorption</h2>
           </div>
           <p>
-            Shows how new facilities are absorbed into the existing leadership structure.
+            Complete opportunity view showing how new facilities are assigned into the leadership network.
           </p>
         </div>
 
         <div class="chart-grid two-column">
           <div class="panel">
-            <h3>Opportunities by Recommended Leader</h3>
+            <h3>Opportunities by Recommended VP</h3>
             <div class="bar-chart" id="opportunitiesByLeaderChart"></div>
           </div>
 
@@ -307,7 +306,7 @@
         </div>
 
         <div class="table-controls">
-          <input id="opportunitySearch" type="search" placeholder="Search opportunities, leaders, regions, or service lines..." />
+          <input id="opportunitySearch" type="search" placeholder="Search opportunities, VPs, regions, EVS/CNS, or facility type..." />
           <select id="opportunityReviewFilter">
             <option value="all">All Opportunities</option>
             <option value="review">Review Required</option>
@@ -315,14 +314,15 @@
           </select>
         </div>
 
-        <div class="table-wrapper">
+        <div class="table-wrapper compact-table-wrapper">
           <table>
             <thead>
               <tr>
                 <th>Opportunity</th>
-                <th>Recommended Leader</th>
+                <th>Recommended VP</th>
                 <th>Region</th>
                 <th>Service Line</th>
+                <th>Facility Type</th>
                 <th>Complexity</th>
                 <th>Workload</th>
                 <th>Capacity Impact</th>
@@ -338,26 +338,19 @@
         <div class="section-heading">
           <div>
             <p class="eyebrow">Workload Visualization</p>
-            <h2>Leader Workload and Capacity</h2>
+            <h2>Baseline vs optimized workload</h2>
           </div>
           <p>
-            Compares baseline and optimized workload against capacity to identify outliers and trends.
+            Scenario-driven view of how selected optimization logic affects leader workload and capacity.
           </p>
         </div>
 
-        <div class="table-controls single-control">
-          <select id="workloadStatusFilter">
-            <option value="all">All Leaders</option>
-            <option value="Over Capacity">Over Capacity</option>
-            <option value="Near Capacity">Near Capacity</option>
-            <option value="Within Capacity">Within Capacity</option>
-            <option value="Available Capacity">Available Capacity</option>
-          </select>
-        </div>
-
-        <div class="panel">
-          <h3>Baseline vs Optimized Workload</h3>
-          <div class="workload-chart" id="workloadChart"></div>
+        <div class="panel compact-panel">
+          <div class="panel-title-row">
+            <h3>Scenario Workload Impact</h3>
+            <span class="soft-label" id="scenarioWorkloadCaption"></span>
+          </div>
+          <div class="workload-chart compact-workload" id="workloadChart"></div>
         </div>
       </section>
 
@@ -365,26 +358,35 @@
         <div class="section-heading">
           <div>
             <p class="eyebrow">Sensitivity Visualization</p>
-            <h2>Weight Configuration Comparison</h2>
+            <h2>Scenario robustness and current-state context</h2>
           </div>
           <p>
-            Displays objective scores and constraint violations across assignment scenarios.
+            Left side compares objective score and constraint violations. Right side keeps current-state context visible.
           </p>
         </div>
 
-        <div class="chart-grid two-column">
+        <div class="sensitivity-layout">
           <div class="panel">
-            <h3>Objective Score by Scenario</h3>
-            <div class="bar-chart" id="objectiveScoreChart"></div>
+            <h3>Objective Score and Constraint Violations</h3>
+            <div class="dual-chart-grid">
+              <div>
+                <h4>Objective Score</h4>
+                <div class="bar-chart" id="objectiveScoreChart"></div>
+              </div>
+              <div>
+                <h4>Constraint Violations</h4>
+                <div class="bar-chart" id="constraintViolationChart"></div>
+              </div>
+            </div>
           </div>
 
-          <div class="panel">
-            <h3>Constraint Violations by Scenario</h3>
-            <div class="bar-chart" id="constraintViolationChart"></div>
+          <div class="panel current-state-context">
+            <h3>Current State Context</h3>
+            <div class="context-list" id="sensitivityCurrentStateContext"></div>
           </div>
         </div>
 
-        <div class="table-wrapper">
+        <div class="table-wrapper compact-table-wrapper">
           <table>
             <thead>
               <tr>
@@ -407,10 +409,11 @@
         <div class="section-heading">
           <div>
             <p class="eyebrow">Executive Drill-down</p>
-            <h2>Leader-Specific Summary</h2>
+            <h2>Leader-specific scenario impact</h2>
           </div>
           <p>
-            Provides leader-level portfolio, workload, capacity, reassignment, and opportunity details.
+            Select a VP and review how the currently selected scenario changes workload, opportunity assignment,
+            EVS/CNS mix, and review flags.
           </p>
         </div>
 
@@ -421,7 +424,7 @@
           </div>
         </div>
 
-        <div class="metric-grid four">
+        <div class="metric-grid compact-metrics four-wide">
           <div class="metric-card">
             <span>Baseline Workload</span>
             <strong id="leaderBaselineWorkload"></strong>
@@ -447,18 +450,19 @@
           </div>
 
           <div class="panel">
-            <h3>Leader Portfolio Mix</h3>
+            <h3>EVS/CNS Portfolio Mix</h3>
             <div class="bar-chart" id="leaderPortfolioMixChart"></div>
           </div>
         </div>
 
-        <div class="table-wrapper">
+        <div class="table-wrapper compact-table-wrapper">
           <table>
             <thead>
               <tr>
                 <th>Facility / Opportunity</th>
                 <th>Type</th>
                 <th>Service Line</th>
+                <th>Facility Type</th>
                 <th>Region</th>
                 <th>Workload</th>
                 <th>Assignment Status</th>
@@ -475,20 +479,20 @@
         <div class="section-heading">
           <div>
             <p class="eyebrow">Relationship Networking</p>
-            <h2>Organizational Relationship View</h2>
+            <h2>Scenario-driven organizational relationship view</h2>
           </div>
           <p>
-            Filtered view of how leaders, facilities, opportunities, and service lines are connected.
-            This section is ready for future NetworkX JSON exports.
+            The network reflects the selected scenario and shows how VPs, facilities, opportunities, EVS/CNS,
+            and review-required items connect.
           </p>
         </div>
 
         <div class="network-controls">
           <button class="network-filter active" data-filter="all">All</button>
-          <button class="network-filter" data-filter="leader">Leaders</button>
+          <button class="network-filter" data-filter="leader">VPs</button>
           <button class="network-filter" data-filter="facility">Facilities</button>
           <button class="network-filter" data-filter="opportunity">Opportunities</button>
-          <button class="network-filter" data-filter="service-line">Service Lines</button>
+          <button class="network-filter" data-filter="service-line">EVS/CNS</button>
           <button class="network-filter" data-filter="review">Review Required</button>
         </div>
 
@@ -514,7 +518,7 @@
             <h2>Project documentation and update log</h2>
           </div>
           <p>
-            Use this area to store project updates, assumptions, decisions, open questions, and next steps.
+            Running documentation for project decisions, assumptions, model updates, UI changes, and next steps.
           </p>
         </div>
 
@@ -522,18 +526,20 @@
           <div class="panel">
             <h3>Latest Update</h3>
             <p>
-              The dashboard has been expanded from a single-page prototype into a multi-tab executive portal.
-              Current work is focused on matching the UI structure to the model outputs and progress-report narrative.
+              The portal has been updated into a scenario-driven executive planning experience.
+              Current focus is correcting terminology, aligning widgets to the business model, and preparing
+              the dashboard for Python-generated outputs.
             </p>
           </div>
 
           <div class="panel">
             <h3>Completed Work</h3>
             <ul>
-              <li>Cleaned Colab model workflow.</li>
-              <li>Published initial GitHub Pages site.</li>
-              <li>Created executive dashboard structure.</li>
-              <li>Added scenario, workload, opportunity, sensitivity, and drill-down views.</li>
+              <li>Published the GitHub Pages prototype.</li>
+              <li>Moved from one long dashboard to a tabbed planning portal.</li>
+              <li>Corrected service-line terminology to EVS and CNS.</li>
+              <li>Converted VP names to VP IDs.</li>
+              <li>Added baseline, scenario, drill-down, network, and reporting views.</li>
             </ul>
           </div>
 
@@ -541,30 +547,29 @@
             <h3>Current Focus</h3>
             <ul>
               <li>Prepare real JSON exports from the Colab model.</li>
-              <li>Replace mock dashboard data with model outputs.</li>
-              <li>Align dashboard sections to progress report themes.</li>
-              <li>Define review-required logic for leaders and opportunities.</li>
+              <li>Replace mock values with model-generated current-state statistics.</li>
+              <li>Connect scenario selection to all dependent tabs.</li>
+              <li>Improve executive-level interpretation and progress reporting.</li>
             </ul>
           </div>
 
           <div class="panel">
             <h3>Next Steps</h3>
             <ul>
-              <li>Export summary metrics from Colab.</li>
-              <li>Export opportunity assignment results.</li>
-              <li>Export leader workload summaries.</li>
-              <li>Export sensitivity results.</li>
-              <li>Export NetworkX nodes and edges.</li>
+              <li>Export company-wide current-state summary from Python.</li>
+              <li>Export all opportunity assignments by scenario.</li>
+              <li>Export leader-level baseline and optimized workload summaries.</li>
+              <li>Export NetworkX nodes and edges for current and optimized states.</li>
             </ul>
           </div>
 
           <div class="panel full-width">
             <h3>Decision Log</h3>
-            <div class="table-wrapper">
+            <div class="table-wrapper compact-table-wrapper">
               <table>
                 <thead>
                   <tr>
-                    <th>Date</th>
+                    <th>Phase</th>
                     <th>Decision</th>
                     <th>Reason</th>
                     <th>Status</th>
@@ -578,10 +583,10 @@
           <div class="panel full-width">
             <h3>Model Assumptions</h3>
             <ul>
-              <li>The model supports decision-making, not automatic final assignment approval.</li>
-              <li>Capacity, distance, service-line fit, and disruption are treated as weighted tradeoffs.</li>
-              <li>Assignments marked for review should be validated with leadership before implementation.</li>
-              <li>Network visualizations are intended to show relationship structure and concentration patterns.</li>
+              <li>The dashboard is a decision-support tool, not an automatic final assignment approval system.</li>
+              <li>Capacity, distance, EVS/CNS fit, complexity, and reassignment disruption are treated as tradeoffs.</li>
+              <li>Assignments marked for review should be validated before implementation.</li>
+              <li>Network views are intended to show relationship structure and concentration patterns.</li>
             </ul>
           </div>
         </div>
@@ -590,5 +595,7 @@
   </main>
 
   <script src="app.js"></script>
+</body>
+</html>
 </body>
 </html>
